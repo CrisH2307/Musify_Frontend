@@ -1,23 +1,112 @@
+{% extends "base.html" %} {% block content %}{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="{% static 'pages/css/style.css' %}" />
   </head>
   <body>
-    {% extends "base.html" %} {% block content %}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Musify</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
+            <li class="nav-item">
+              <a class="nav-link active" href="/about">About Us</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Card -->
     <h1>Homepage</h1>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card mb-2">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://www.the-sun.com/wp-content/uploads/sites/6/2022/01/AB-WEEKND-COMP.jpg"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <h5 class="card-title">The Weeknd</h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem">
+          <img src="https://i.insider.com/6523dcd36561dd877e745ee2?width=700" class="card-img-top" alt="" />
           <div class="card-body">
             <h5 class="card-title">Drake</h5>
-            <p class="card-text">Take Care (2012)</p>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://www.jsonline.com/gcdn/authoring/authoring-images/2023/11/06/USAT/71474881007-ap-travis-scott-in-concert-los-angeles.jpg?crop=1560,1170,x488,y281"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <h5 class="card-title">Travis Scott</h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://www.rollingstone.com/wp-content/uploads/2018/06/jcole-59fe5d51-b84d-49e6-a1fc-731c619f5f4a.jpg"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <h5 class="card-title">J Cole</h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://yebscore-cms.s3.us-east-2.amazonaws.com/2023/04/2022-popular-music-bad-bunny-tops-pandora-and-apple-music-charts-know-details-here.jpg"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <h5 class="card-title">Bad Bunny</h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">Explore</a>
           </div>
         </div>
       </div>
     </div>
-    {% endblock content %}
   </body>
 </html>
+{% endblock content %}
