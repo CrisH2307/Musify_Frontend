@@ -29,10 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# SPOTIFY DEVELOPER ID
-SPOTIFY_CLIENT_ID = 'b2e4b2c34ef04e4b984147e143d90f5a'
-SPOTIFY_CLIENT_SECRET = '33932023947e403ea3949ef65eda5fdb'
-SPOTIFY_REDIRECT_URI = 'http://localhost:8000/callback'
 
 
 STATIC_URL = '/static/'
@@ -86,11 +82,14 @@ WSGI_APPLICATION = 'Musify.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': os.environ['host'],
+        'NAME': os.environ['dbname'],
+        'USER': os.environ['user'],
+        'PORT': os.environ['port'],
+        'PASSWORD': os.environ['password'],
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
