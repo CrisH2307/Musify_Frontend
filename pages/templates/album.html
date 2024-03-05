@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block content %}{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Album</title>
+  </head>
+  <body>
+    <style>
+      .card-body{
+        padding: 20px;
+        margin-top: 20px;
+      }
+    </style>
+    <br />
+    <br />
+    <div class="container">
+    <!-- Artist Desc -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img
+                    src="https://i.discogs.com/rwQC6FcbOuyE9t0BbfVZRAZoen_-23IC3ytonML3KCs/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4ODE1/OTAtMTQ1MDgxNjY3/MC04NjAxLnBuZw.jpeg"
+                    class="card"
+                    alt=""
+                    style="width: full;"
+                />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <h1 class="card-title">Beauty Behind The Maddness</h1>
+                <p class="card-text" style="font-size: 28px;"><small class="text-body-secondary">2015</small></p>
+                <p class="card-text"><small class="text-body-secondary">12 Songs</small></p>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <!-- Artist Albums -->
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Artist</th>
+              <th scope="col">Duration</th>
+            </tr>
+          </thead>
+        <tbody>
+        <script>
+            for (var i = 0; i < 12; ++i) {
+            document.write(`
+                <tr>
+                    <th scope="row">${i + 1}</th>
+                    <td>Real Life</td>
+                    <td>The Weeknd</td>
+                    <td>2:44</td>
+                </tr>
+            `);
+            }
+        </script>
+        </tbody>
+    </table>
+    </div>
+    <br />
+    <br />
+    <hr />
+    </div>
+  </body>
+</html>
+{% endblock content %}

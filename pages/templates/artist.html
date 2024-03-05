@@ -7,7 +7,62 @@
     <title>Artist</title>
   </head>
   <body>
-    <div>Hello The Weeknd</div>
+    <style>
+      .album {
+        margin-left: 50px;
+      }
+      .c2 {
+        border: solid 2px;
+      }
+      .cont {
+        padding: 30px;
+      }
+    </style>
+    <br />
+    <br />
+
+    <!-- Artist Desc -->
+    <div class="cont">
+      <div class="card mb-3">
+        <img
+          src="https://www.the-sun.com/wp-content/uploads/sites/6/2022/01/AB-WEEKND-COMP.jpg"
+          class="card-img-top"
+          alt=""
+        />
+        <div class="card-body">
+          <h1 class="card-title">The Weeknd</h1>
+          <p class="card-text"><small class="text-body-secondary">12 Albums</small></p>
+        </div>
+      </div>
+      <br />
+      <br />
+      <!-- Artist Albums -->
+      <div class="album row row-cols-1 row-cols-md-3 g-4">
+        <script>
+          for (var i = 0; i < 12; ++i) {
+            document.write(`
+            <div class="col">
+                <div class="card" style="width: 18rem">
+                    <img
+                        src="https://i.discogs.com/rwQC6FcbOuyE9t0BbfVZRAZoen_-23IC3ytonML3KCs/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4ODE1/OTAtMTQ1MDgxNjY3/MC04NjAxLnBuZw.jpeg"
+                        class="card-img-top"
+                        alt=""
+                    />
+                    <div class="card-body c2">
+                        <h5 class="card-title">Beauty Behind The Maddness</h5>
+                        <p class="card-text">2015</p>
+                        <a href="/artist/album" class="btn btn-outline-success">Play</a>
+                    </div>
+                </div>
+              </div>
+          `);
+          }
+        </script>
+      </div>
+      <br />
+      <br />
+      <hr />
+    </div>
   </body>
 </html>
 {% endblock content %}

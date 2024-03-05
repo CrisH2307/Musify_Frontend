@@ -9,6 +9,100 @@
     <link rel="stylesheet" href="{% static 'pages/css/style.css' %}" />
   </head>
   <body class="container">
+    <style>
+      hr {
+        border: 5px solid black;
+      }
+    </style>
+    <!--Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light hover">
+      <div class="container-fluid">
+        <a class="navbar-brand" style="font-size: 30px" href="{% url 'home' %}">Musify</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'about' %}">About Us</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
     {% block content %} {% endblock content %}
+    <br />
+    <br />
+    <!-- Footer -->
+    <div class="blockcode">
+      <footer class="page-footer shadow">
+        <div class="d-flex flex-column mx-auto py-5" style="width: 80%">
+          <div class="d-flex flex-wrap justify-content-between">
+            <div>
+              <p class="my-3" style="width: 250px">We are the big fan of Music</p>
+            </div>
+            <div>
+              <p class="h5 mb-4" style="font-weight: 600">Musify</p>
+              <ul class="p-0" style="list-style: none; cursor: pointer">
+                <li class="my-2">
+                  <a class="text-dark" href="/">Resources</a>
+                </li>
+                <li class="my-2">
+                  <a class="text-dark" href="/">About Us</a>
+                </li>
+                <li class="my-2">
+                  <a class="text-dark" href="/">Contact</a>
+                </li>
+                <li class="my-2">
+                  <a class="text-dark" href="/">Blog</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p class="h5 mb-4" style="font-weight: 600">Help</p>
+              <ul class="p-0" style="list-style: none; cursor: pointer">
+                <li class="my-2">
+                  <a class="text-dark" href="/">Support</a>
+                </li>
+                <li class="my-2">
+                  <a class="text-dark" href="/">Sign Up</a>
+                </li>
+                <li class="my-2">
+                  <a class="text-dark" href="/">Sign In</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p class="h5 mb-4" style="font-weight: 600">Call</p>
+              <ul class="p-0" style="list-style: none; cursor: pointer">
+                <li class="my-2">
+                  <a class="text-dark" href="/">Support</a>
+                </li>
+                <li class="my-2">
+                  <a class="text-dark" href="/">Sign Up</a>
+                </li>
+                <li class="my-2">
+                  <a class="text-dark" href="/">Sign In</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <small class="text-center mt-5">&copy; Musify, 2024. All rights reserved.</small>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

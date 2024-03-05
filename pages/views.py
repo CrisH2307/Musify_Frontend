@@ -12,3 +12,7 @@ class AboutPageView(TemplateView):
 class ArtistPageView(TemplateView):
     template_name = "artist.html"
 
+
+class AlbumPageView(TemplateView):
+    template_name = "album.html"
+

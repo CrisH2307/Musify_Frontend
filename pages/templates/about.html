@@ -30,36 +30,6 @@
     }
   </style>
   <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">Musify</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarScroll"
-          aria-controls="navbarScroll"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'about' %}">About Us</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-
     <div class="card mb-3">
       <img
         src="https://www.copyright.gov/music-modernization/images/licensing-interactive-streams.jpg"
@@ -72,8 +42,7 @@
       </div>
     </div>
     <br /> <br /> <br />
-
-    <hr>
+    <hr />
     <!-- Team Wrapper -->
     <div class="team">
       Our Team
@@ -83,7 +52,7 @@
         <div class="card">
           <div class="card-body">
             <h2 class="card-title">Frontend Developer & Project Leader: Cris Huynh</h2>
-            <p class="card-text">I'm currently studying Bachelor of Technology - Software Development. I have been coding since I was 14 years old. I have just over two year of experience as a junior software engineer with the good contribution for the company. In my short time there, I have already contributed to over a dozen projects and assisted with managing one project for one of the firm's long-time clients. I'm a Front-end Developer using React, JavaScript, and Python that just work across all platforms and browsers. Now I'm aiming to System Analysis and Project Managing using Jira</p>
+            <p class="card-text">I'm currently studying Bachelor of Technology - Software Development. I have been coding since I was 14 years old. I have just over four years of experience as a junior software engineer with the good contribution for the company. In my short time there, I have already contributed to over a dozen projects and assisted with managing one project for one of the firm's long-time clients. I'm a Front-end Developer using React, JavaScript, and Python that just work across all platforms and browsers. Now I'm aiming to System Analysis and Project Managing using Jira</p>
             <a href="https://github.com/CrisH2307" target="_blank" class="btn btn-outline-info" role="button">Github</a>
             <a href="https://linkedin.com/in/cris-huynh-2a52b5274" target="_blank" class="btn btn-outline-info" role="button">LinkedIn</a>
           </div>
@@ -110,69 +79,7 @@
         </div>
       </div>
     </div>
-    <br /> <br /> <br />
-    <hr>
-
-    <!-- Footer -->
-    <div class="blockcode">
-      <footer class="page-footer shadow">
-        <div class="d-flex flex-column mx-auto py-5" style="width: 80%">
-          <div class="d-flex flex-wrap justify-content-between">
-            <div>
-              <p class="my-3" style="width: 250px">
-                We are the big fan of Music
-              </p>
-            </div>
-            <div>
-              <p class="h5 mb-4" style="font-weight: 600">Musify</p>
-              <ul class="p-0" style="list-style: none; cursor: pointer">
-                <li class="my-2">
-                  <a class="text-dark" href="/">Resources</a>
-                </li>
-                <li class="my-2">
-                  <a class="text-dark" href="/">About Us</a>
-                </li>
-                <li class="my-2">
-                  <a class="text-dark" href="/">Contact</a>
-                </li>
-                <li class="my-2">
-                  <a class="text-dark" href="/">Blog</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p class="h5 mb-4" style="font-weight: 600">Help</p>
-              <ul class="p-0" style="list-style: none; cursor: pointer">
-                <li class="my-2">
-                  <a class="text-dark" href="/">Support</a>
-                </li>
-                <li class="my-2">
-                  <a class="text-dark" href="/">Sign Up</a>
-                </li>
-                <li class="my-2">
-                  <a class="text-dark" href="/">Sign In</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p class="h5 mb-4" style="font-weight: 600">Call</p>
-              <ul class="p-0" style="list-style: none; cursor: pointer">
-                <li class="my-2">
-                  <a class="text-dark" href="/">Support</a>
-                </li>
-                <li class="my-2">
-                  <a class="text-dark" href="/">Sign Up</a>
-                </li>
-                <li class="my-2">
-                  <a class="text-dark" href="/">Sign In</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <small class="text-center mt-5">&copy; Musify, 2024. All rights reserved.</small>
-        </div>
-      </footer>
-    </div>
+    <hr />
   </body>
 </html>
 {% endblock content %}
