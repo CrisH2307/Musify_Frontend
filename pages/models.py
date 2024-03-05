@@ -1,4 +1,4 @@
-'''
+"""
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
@@ -7,20 +7,7 @@ from django.urls import reverse
 class Artist(models.Model):
     name = models.CharField(max_length=255)  
     artist_id = models.SlugField(unique=True, max_length=255)
-    created_on = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='artist_images/', blank=True, null=True) 
-
-    def get_absolute_url(self):
-        return reverse('artist_detail', args=[self.artist_id])  
-    
-    def save(self, *args, **kwargs):
-        if not self.artist_id:
-            self.artist_id = slugify(self.name)
-        super(Artist, self).save(*args, **kwargs)
-
-    class Meta:
-        db_table = 'artist'
-        ordering = ['created_on']
 
     def __str__(self): 
         return self.name
@@ -29,17 +16,8 @@ class Artist(models.Model):
 class Album(models.Model):
     title = models.CharField(max_length=255, default='Untitled Album')
     release_date = models.DateField(null=True, blank=True)
-
-    def get_default_artist():
-        default_artist = Artist.objects.first()
-        return default_artist.id if default_artist else None
-
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='albums', default=get_default_artist)
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        db_table = "album"
-        ordering = ['-release_date']  
+    album_id = models.CharField(max_length=255, unique=True) 
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
 
     def __str__(self):  
         return self.title
@@ -57,5 +35,4 @@ class Song(models.Model):
 
     def __str__(self):
         return self.title
-
-'''
+"""
