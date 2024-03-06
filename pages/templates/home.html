@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block content %}{% load static %}
+{% extends "base.html" %} {% block content %}{% load static %}{% load utils%}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,74 +14,30 @@
         padding: 20px;
       }
     </style>
+
     <!-- Main Card -->
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for item in data %}
       <div class="col">
         <div class="card" style="width: 18rem">
-          <img
-            src="https://www.the-sun.com/wp-content/uploads/sites/6/2022/01/AB-WEEKND-COMP.jpg"
-            class="card-img-top"
-            alt=""
-          />
+          <div style="overflow: hidden; aspect-ratio: 1/1">
+            <img
+              src="{{ item.artistimg }}"
+              class="card-img-top"
+              style="width: 100%; height: 100%; object-fit: cover"
+              alt=""
+            />
+          </div>
           <div class="card-body">
-            <h5 class="card-title">The Weeknd</h5>
-            <p class="card-text"></p>
+            <h5 class="card-title" style="font-size: 30px">{{item.name}}</h5>
+            <p class="card-text">Artist</p>
+            <p class="card-text">{{ item.followers|format_number_with_commas }}</p>
             <a href="/artist" class="btn btn-primary">Explore</a>
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card" style="width: 18rem">
-          <img src="https://i.insider.com/6523dcd36561dd877e745ee2?width=700" class="card-img-top" alt="" />
-          <div class="card-body">
-            <h5 class="card-title">Drake</h5>
-            <p class="card-text"></p>
-            <a href="#" class="btn btn-primary">Explore</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem">
-          <img
-            src="https://www.jsonline.com/gcdn/authoring/authoring-images/2023/11/06/USAT/71474881007-ap-travis-scott-in-concert-los-angeles.jpg?crop=1560,1170,x488,y281"
-            class="card-img-top"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">Travis Scott</h5>
-            <p class="card-text"></p>
-            <a href="#" class="btn btn-primary">Explore</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem">
-          <img
-            src="https://www.rollingstone.com/wp-content/uploads/2018/06/jcole-59fe5d51-b84d-49e6-a1fc-731c619f5f4a.jpg"
-            class="card-img-top"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">J Cole</h5>
-            <p class="card-text"></p>
-            <a href="#" class="btn btn-primary">Explore</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem">
-          <img
-            src="https://yebscore-cms.s3.us-east-2.amazonaws.com/2023/04/2022-popular-music-bad-bunny-tops-pandora-and-apple-music-charts-know-details-here.jpg"
-            class="card-img-top"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">Bad Bunny</h5>
-            <p class="card-text"></p>
-            <a href="#" class="btn btn-primary">Explore</a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </body>
 </html>

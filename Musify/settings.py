@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,16 +77,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Musify.wsgi.application'
 
 
-# Database
+# Database - SUPABASE
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': "aws-0-us-west-1.pooler.supabase.com",
         'NAME': "postgres",
-        'USER': "postgres.ttugtedspijhkyrgvelk",
-        'PORT': "5432",
+        'USER': "postgres.ruoaxfttcbppnoyzvvur",
+        'PORT': 5432,
         'PASSWORD': "353659956Tokyoo",
     }
 }
