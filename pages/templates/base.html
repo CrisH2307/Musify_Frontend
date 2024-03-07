@@ -35,10 +35,6 @@
               <a class="nav-link active" style="font-size: 20px; padding: 20px" href="{% url 'about' %}">About Us</a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
@@ -61,7 +57,7 @@
                   <a class="text-dark" href="/">Resources</a>
                 </li>
                 <li class="my-2">
-                  <a class="text-dark" href="/">About Us</a>
+                  <a class="text-dark" href="{% url 'about' %}">About Us</a>
                 </li>
                 <li class="my-2">
                   <a class="text-dark" href="/">Contact</a>
