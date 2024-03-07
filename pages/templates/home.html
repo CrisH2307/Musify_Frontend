@@ -11,7 +11,8 @@
   <body>
     <style>
       .row {
-        padding: 20px;
+        padding-left: 80px;
+        margin-top: 20px;
       }
     </style>
 
@@ -20,7 +21,7 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
       {% for item in data %}
       <div class="col">
-        <div class="card" style="width: 18rem">
+        <div class="card" style="width: 20rem">
           <div style="overflow: hidden; aspect-ratio: 1/1">
             <img
               src="{{ item.artistimg }}"
@@ -32,8 +33,8 @@
           <div class="card-body">
             <h5 class="card-title" style="font-size: 30px">{{item.name}}</h5>
             <p class="card-text">Artist</p>
-            <p class="card-text">{{ item.followers|format_number_with_commas }}</p>
-            <a href="/artist" class="btn btn-primary">Explore</a>
+            <p class="card-text">{{ item.followers|format_number_with_commas }} listeners</p>
+            <a href="{% url 'artist' artistid=item.artistid %}" class="btn btn-primary">Explore</a>
           </div>
         </div>
       </div>

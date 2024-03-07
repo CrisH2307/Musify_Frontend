@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %}{% load static %}
+{% extends "base.html" %} {% block content %}{% load static %}{% load utils%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,6 +19,9 @@
       {
         font-size: 25px;
       }
+      .container{
+        padding: 20px;
+      }
     </style>
     <br />
     <br />
@@ -28,7 +31,7 @@
         <div class="col-md-4">
             <div class="card mb-3">
                 <img
-                    src="https://i.discogs.com/rwQC6FcbOuyE9t0BbfVZRAZoen_-23IC3ytonML3KCs/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4ODE1/OTAtMTQ1MDgxNjY3/MC04NjAxLnBuZw.jpeg"
+                    src="{{data.album.albumimg}}"
                     class="card"
                     alt=""
                     style="width: full;"
@@ -37,10 +40,10 @@
         </div>
         <div class="col-md-6">
             <div class="card-body">
-                <h1 class="card-title">Beauty Behind The Maddness</h1>
-                <h5 class="card-title">The Weeknd</h5>
-                <p class="card-text" style="font-size: 28px;"><small class="text-body-secondary">2015</small></p>
-                <p class="card-text" style="font-size: 20px;"><small class="text-body-secondary">12 Songs</small></p>
+                <h1 class="card-title">{{data.album.albumtitle}}</h1>
+                <h5 class="card-title">{{data.artist_name}}</h5>
+                <p class="card-text" style="font-size: 28px;"><small class="text-body-secondary">{{data.album.date}}</small></p>
+                <p class="card-text" style="font-size: 20px;"><small class="text-body-secondary">{{song_count}} songs </small></p>
             </div>
         </div>
     </div>
@@ -58,18 +61,14 @@
             </tr>
           </thead>
         <tbody>
-        <script>
-            for (var i = 0; i < 12; ++i) {
-            document.write(`
-                <tr>
-                    <th scope="row">${i + 1}</th>
-                    <td>Real Life</td>
-                    <td>The Weeknd</td>
-                    <td>2:44</td>
-                </tr>
-            `);
-            }
-        </script>
+        {% for song in data.songs %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+                <td>{{song.title}}</td>
+                <td>{{data.artist_name}}</td>
+                <td>{{ song.duration|convert_duration }}</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
     </div>

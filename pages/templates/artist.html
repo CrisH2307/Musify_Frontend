@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Artist</title>
+    <title>{{data.artist.name}}</title>
   </head>
   <body>
     <style>
@@ -15,14 +15,11 @@
         border: solid 1px;
         padding: 20px;
       }
-      .card:hover {
+      .card1:hover {
         background-color: chartreuse;
         opacity: 89%;
         transition-delay: 50ms;
         transition-duration: 300ms;
-      }
-      .card-text {
-        letter-spacing: 1.1px;
       }
       .cont {
         padding: 30px;
@@ -34,40 +31,34 @@
     <!-- Artist Desc -->
     <div class="cont">
       <div class="card mb-3">
-        <img
-          src="https://www.the-sun.com/wp-content/uploads/sites/6/2022/01/AB-WEEKND-COMP.jpg"
-          class="card-img-top"
-          alt=""
-        />
+        <img src="{{ data.artist.artistimg }}" class="card-img-top" alt="" />
         <div class="card-body">
-          <h1 class="card-title">The Weeknd</h1>
-          <p class="card-text" style="font-size: 22px"><small class="text-body-secondary">12 Albums</small></p>
+          <h1 class="card-title">{{ data.artist.name }}</h1>
+          <p class="card-text" style="font-size: 22px">
+            <small class="text-body-secondary">{{album_count }} Albums</small>
+          </p>
         </div>
       </div>
       <br />
       <br />
       <!-- Artist Albums -->
       <div class="album row row-cols-1 row-cols-md-3 g-4">
-        <script>
-          for (var i = 0; i < 12; ++i) {
-            document.write(`
-            <div class="col">
-                <div class="card" style="width: 18rem">
-                    <img
-                        src="https://i.discogs.com/rwQC6FcbOuyE9t0BbfVZRAZoen_-23IC3ytonML3KCs/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4ODE1/OTAtMTQ1MDgxNjY3/MC04NjAxLnBuZw.jpeg"
-                        class="card-img-top"
-                        alt=""
-                    />
-                    <div class="card-body c2">
-                        <h5 class="card-title">Beauty Behind The Maddness</h5>
-                        <p class="card-text">2015 | Album</p>
-                        <a href="/artist/album" class="btn btn-outline-success">Play</a>
-                    </div>
-                </div>
-              </div>
-          `);
-          }
-        </script>
+        {% for album in data.albums %}
+        <div class="col">
+          <div class="card card1" style="width: 18rem">
+            <img src="{{album.albumimg}}" class="card-img-top" alt="" />
+            <div class="card-body c2">
+              <h5 class="card-title">{{album.albumtitle}}</h5>
+              <p class="card-text">{{album.date}} &nbsp; | &nbsp; Album</p>
+              <a
+                href="{% url 'album' artistid=data.artist.artistid albumid=album.albumid %}"
+                class="btn btn-outline-success"
+                >Play</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
       <br />
       <br />
