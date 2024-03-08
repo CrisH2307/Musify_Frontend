@@ -1,11 +1,25 @@
 from django.views.generic import TemplateView
 from supabase_py import create_client
 from django.shortcuts import render
-
+from functools import wraps
 
 def fetch_supabase_data(supabase_url, supabase_key):
     return create_client(supabase_url, supabase_key)
 
+def sort_albums_by_date(func):
+    @wraps(func)
+    def wrapper(self, artist_id, *args, **kwargs):
+        data = func(self, artist_id, *args, **kwargs)
+
+        # Check if 'albums' key is present in the data
+        if 'albums' in data:
+            # Sort albums by date in descending order (newest to oldest)
+            sorted_albums = sorted(data['albums'], key=lambda x: x.get('date', ''), reverse=True)
+            data['albums'] = sorted_albums
+
+        return data
+
+    return wrapper
 
 class HomePageView(TemplateView):
     template_name = "home.html"
@@ -29,6 +43,7 @@ def view_data(request):
 class ArtistPageView(TemplateView):
     template_name = "artist.html"
     
+    @sort_albums_by_date
     def get_data(self, artist_id):
         supabase_url = 'https://ruoaxfttcbppnoyzvvur.supabase.co'
         supabase_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1b2F4ZnR0Y2JwcG5veXp2dnVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk2NzUxMzEsImV4cCI6MjAyNTI1MTEzMX0.PLg70dP9slrDuWLhEM5Z8fHiTtHkB_5j8XrddQ08oP8'
@@ -61,16 +76,20 @@ class ArtistPageView(TemplateView):
         # Calculate album count
         album_count = len(artist_albums)
 
+        # Sort albums by date in descending order (newest to oldest), By calling decorator
+        sorted_albums = sorted(artist_albums, key=lambda x: x.get('date', ''), reverse=True)
+
         return {
             'artist': artists.get(artist_id, {}),
-            'albums': artist_albums,
+            'albums': sorted_albums, 
             'album_count': album_count
         }
 
+
     def get_context_data(self, **kwargs):
-        album_id = self.kwargs.get('artistid')
+        artist_id = self.kwargs.get('artistid')
         context = super().get_context_data(**kwargs)
-        context['data'] = self.get_data(album_id)
+        context['data'] = self.get_data(artist_id)
         context['album_count'] = context['data'].get('album_count', 0)
         return context
 
@@ -105,7 +124,7 @@ class AlbumPageView(TemplateView):
         supabase_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1b2F4ZnR0Y2JwcG5veXp2dnVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk2NzUxMzEsImV4cCI6MjAyNTI1MTEzMX0.PLg70dP9slrDuWLhEM5Z8fHiTtHkB_5j8XrddQ08oP8'
         supabase_client = fetch_supabase_data(supabase_url, supabase_key)
 
-        # Fetch artist data
+        # Fetch album data
         album_response = supabase_client.table('album').select("*").execute()
         if album_response.get('error'):
             print(f"Error fetching artist data: {album_response['error']}")
