@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'Musify.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': "aws-0-us-west-1.pooler.supabase.com",
         'NAME': "postgres",
-        'USER': "postgres.ruoaxfttcbppnoyzvvur",
-        'PORT': 5432,
-        'PASSWORD': "353659956Tokyoo",
+        'USER': "postgres",
+        'PASSWORD' : 'Huynhxuankhang04@',
+        'HOST' : 'localhost',
+        'PORT' : '5433',
     }
 }
 

@@ -1,3 +1,4 @@
+
 from django.views.generic import TemplateView
 from supabase_py import create_client
 from django.shortcuts import render
