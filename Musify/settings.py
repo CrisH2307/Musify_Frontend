@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'Musify.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "postgres",
-        'USER': "postgres",
-        'PASSWORD' : 'Huynhxuankhang04@',
-        'HOST' : 'localhost',
-        'PORT' : '5433',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'NewMusify',
+        'USER': 'postgres',
+        'PASSWORD': '353659956Tokyoo',  # Replace with your actual password
+        'HOST': 'localhost',  # Or the address of your PostgreSQL server
+        'PORT': '5432',  # The default PostgreSQL port
     }
 }
 
