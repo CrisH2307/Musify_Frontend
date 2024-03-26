@@ -15,6 +15,12 @@ class HomepageTests(TestCase):
         response = self.client.get(reverse("home"))
         self.assertTemplateUsed(response, "home.html")
 
+    def test_non_existent_url(self):
+        response = self.client.get("/non_existent_url/")
+        self.assertEqual(response.status_code, 404)
+
+
+
 class ArtistpageTests(TestCase):
     def setUp(self):
         self.artist = Artist.objects.create(artistid=1, name="Test Artist")
@@ -30,6 +36,13 @@ class ArtistpageTests(TestCase):
     def test_template_name_correct(self):  
         response = self.client.get(reverse("artist", kwargs={"artistid": self.artist.artistid}))
         self.assertTemplateUsed(response, "artist.html")
+
+    def test_artist_detail_page(self):
+        response = self.client.get(reverse("artist", kwargs={"artistid": self.artist.artistid}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.artist.name)
+        # Add more assertions if you have additional details to display on the artist page
+
 
 
 class AlbumpageTests(TestCase):
